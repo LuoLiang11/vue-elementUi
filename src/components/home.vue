@@ -10,7 +10,6 @@
         <el-menu-item index="printing">打印</el-menu-item>
       </el-menu>
     </el-header>
-    <!--<my-aside :type="type"></my-aside>-->
     <router-view :type="type"/>
   </el-container>
 </template>
