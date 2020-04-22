@@ -31,13 +31,15 @@ export default {
       const routes = this.$router.options.routes[0].children
       // console.log(routes)
       routes.forEach(item => {
-        if (item.name === 'acco') {
+        if (item.type === 'acco' && item.hidInMenu) {
           item.children.forEach(item => {
             menuData.push(item)
           })
         }
+        if (item.type === 'acco' && !item.hidInMenu) {
+          menuData.push(item)
+        }
       })
-      console.log(menuData)
       return menuData
     }
   },

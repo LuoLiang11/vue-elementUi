@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-submenu :index="item.name" v-if="item.children">
+    <el-submenu :index="item.path" v-if="item.children">
       <template slot="title">
         <i :class="item.mate.icon"></i>
         <span>{{item.mate.title}}</span>

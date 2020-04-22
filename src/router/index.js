@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import accountOpen from './acco/accountOpen'
 import accountModify from './acco/accountModify'
+import fuhe from './acco/fuhe'
 import trade from './trade'
 import printing from './printing'
 
@@ -12,21 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'acco',
+      redirect: 'open',
       component: () => import('@/components/home'),
       children: [
-        {
-          path: '/acco',
-          name: 'acco',
-          component: () => import('@/components/acco/acco'),
-          children: [accountOpen, accountModify,
-            {
-              path: '/fuhe',
-              name: 'fuhe',
-              mate: {icon: 'el-icon-edit', title: '复核'},
-              component: () => import('@/components/acco/fuhe')
-            }]
-        },
+        accountOpen,
+        accountModify,
+        fuhe,
         trade,
         printing
       ]
