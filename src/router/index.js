@@ -4,7 +4,8 @@ import accountOpen from './acco/accountOpen'
 import accountModify from './acco/accountModify'
 import accountfuhe from './acco/fuhe'
 import trade from './trade'
-import printing from './printing'
+import voucherPrinting from './printing/voucherPrinting'
+import reportPrinting from './printing/reportPrinting'
 
 Vue.use(Router)
 
@@ -20,7 +21,8 @@ export default new Router({
         accountModify,
         accountfuhe,
         trade,
-        printing
+        voucherPrinting,
+        reportPrinting
       ]
     }
   ]
