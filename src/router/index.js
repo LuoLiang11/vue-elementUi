@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import accountOpen from './acco/accountOpen'
 import accountModify from './acco/accountModify'
-import fuhe from './acco/fuhe'
+import accountfuhe from './acco/fuhe'
 import trade from './trade'
 import printing from './printing'
 
@@ -18,7 +18,7 @@ export default new Router({
       children: [
         accountOpen,
         accountModify,
-        fuhe,
+        accountfuhe,
         trade,
         printing
       ]

@@ -4,7 +4,7 @@ const open =
     path: '/acco',
     type: 'acco',
     component: () => import('@/components/acco/acco'),
-    mate: {icon: 'el-icon-edit', title: '账户开户'},
+    mate: {icon: 'el-icon-edit', title: '账户开户'}, // 菜单栏展示的图标和栏目文字
     children: [
       {
         path: '/OpenConsumer',
