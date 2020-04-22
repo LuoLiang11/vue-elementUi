@@ -3,7 +3,7 @@ const fuhe =
     path: '/',
     type: 'acco',
     hidInMenu: true, // 在菜单栏不展示此项
-    component: () => import('@/components/acco/acco'),
+    component: () => import('@/components/menu'),
     children: [{
       path: '/fuhe',
       type: 'acco',

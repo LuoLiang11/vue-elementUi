@@ -16,35 +16,42 @@
 </template>
 
 <script>
-import MenuItem from '../MenuItem'
+import MenuItem from './MenuItem'
 export default {
   name: 'acco',
   components: {MenuItem},
+  props: ['type'],
   data () {
     return {
-      menuData: this.getAccoMenu()
+      menuData: []
     }
   },
   methods: {
-    getAccoMenu () {
+    getMenu () {
+      this.menuData = []
       const menuData = []
       const routes = this.$router.options.routes[0].children
       // console.log(routes)
       routes.forEach(item => {
-        if (item.type === 'acco' && item.hidInMenu) {
+        if (item.type === this.type && item.hidInMenu) {
           item.children.forEach(item => {
             menuData.push(item)
           })
         }
-        if (item.type === 'acco' && !item.hidInMenu) {
+        if (item.type === this.type && !item.hidInMenu) {
           menuData.push(item)
         }
       })
-      return menuData
+      this.menuData = menuData
     }
   },
   mounted () {
-    this.getAccoMenu()
+    this.getMenu()
+  },
+  watch: {
+    type (newName, oldName) {
+      this.getMenu()
+    }
   }
 }
 </script>

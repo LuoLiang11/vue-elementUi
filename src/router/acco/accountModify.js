@@ -3,7 +3,7 @@ const modify = {
   path: '/modify',
   type: 'acco',
   mate: {icon: 'el-icon-edit-outline', title: '资料修改'},
-  component: () => import('@/components/acco/acco'),
+  component: () => import('@/components/menu'),
   children: [
     {
       path: '/ModifyConsumer',

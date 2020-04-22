@@ -3,20 +3,32 @@
     <el-header>
       <el-menu
         class="el-menu-demo" mode="horizontal"
-        background-color="#545c64" text-color="#fff"
+        background-color="#545c64" text-color="#fff" @select="handleSelect"
         active-text-color="#ffd04b" :router=true default-active="acco">
         <el-menu-item index="acco">账户</el-menu-item>
         <el-menu-item index="trade">交易</el-menu-item>
         <el-menu-item index="printing">打印</el-menu-item>
       </el-menu>
     </el-header>
-    <router-view/>
+    <!--<my-aside :type="type"></my-aside>-->
+    <router-view :type="type"/>
   </el-container>
 </template>
 
 <script>
 export default {
-  name: 'home'
+  name: 'home',
+  data: function () {
+    return {
+      type: 'acco'
+    }
+  },
+  methods: {
+    handleSelect (key, keyPath) {
+      this.type = key
+      console.log('checked head menu ' + key)
+    }
+  }
 }
 </script>
 
