@@ -16,6 +16,12 @@ const trade = {
       type: 'trade',
       component: () => import('@/components/trade/Subscribe'),
       mate: {icon: 'el-icon-circle-close', title: '认购'}
+    },
+    {
+      path: '/Redeem',
+      type: 'trade',
+      component: () => import('@/components/trade/Redeem'),
+      mate: {icon: 'el-icon-sell', title: '赎回'}
     }
   ]
 }

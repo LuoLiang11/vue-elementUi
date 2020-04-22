@@ -9,7 +9,7 @@ import reportPrinting from './printing/reportPrinting'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -24,6 +24,16 @@ export default new Router({
         voucherPrinting,
         reportPrinting
       ]
+    },
+    {
+      path: '/login',
+      component: () => import('@/components/login')
+    },
+    {
+      path: '*',
+      component: () => import('@/components/404')
     }
   ]
 })
+
+export default router
