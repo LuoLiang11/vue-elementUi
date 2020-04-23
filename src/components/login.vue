@@ -42,7 +42,10 @@ export default {
   },
   methods: {
     doLogin () {
-      alert(JSON.stringify(this.user))
+      this.$store.dispatch('GenerateRoutes', ['admin']).then(() => {
+        this.$router.addRoutes(this.$store.state.addRouters)
+        this.$router.push('/acco')
+      })
     }
   }
 }

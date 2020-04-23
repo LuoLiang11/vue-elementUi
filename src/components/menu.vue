@@ -30,16 +30,20 @@ export default {
     getMenu () {
       this.menuData = []
       const menuData = []
-      const routes = this.$router.options.routes[0].children
-      // console.log(routes)
-      routes.forEach(item => {
-        if (item.type === this.type && item.hidInMenu) {
-          item.children.forEach(item => {
-            menuData.push(item)
+      const routes = this.$store.state.routers
+      console.log(routes)
+      routes.forEach(route => {
+        if (route.children) {
+          route.children.forEach(item => {
+            if (item.type === this.type && item.hidInMenu) {
+              item.children.forEach(item => {
+                menuData.push(item)
+              })
+            }
+            if (item.type === this.type && !item.hidInMenu) {
+              menuData.push(item)
+            }
           })
-        }
-        if (item.type === this.type && !item.hidInMenu) {
-          menuData.push(item)
         }
       })
       this.menuData = menuData

@@ -9,31 +9,32 @@ import reportPrinting from './printing/reportPrinting'
 
 Vue.use(Router)
 
-const router = new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      redirect: 'open',
-      component: () => import('@/components/home'),
-      children: [
-        accountOpen,
-        accountModify,
-        accountfuhe,
-        trade,
-        voucherPrinting,
-        reportPrinting
-      ]
-    },
-    {
-      path: '/login',
-      component: () => import('@/components/login')
-    },
-    {
-      path: '*',
-      component: () => import('@/components/404')
-    }
-  ]
-})
+export const powerRouter = [
+  {
+    path: '/',
+    redirect: 'open',
+    component: () => import('@/components/home'),
+    children: [
+      accountOpen,
+      accountModify,
+      accountfuhe,
+      trade,
+      voucherPrinting,
+      reportPrinting
+    ]
+  }, { path: '*', component: () => import('@/components/404') }]
+
+export const contenRouter = [
+  {
+    path: '/login',
+    component: () => import('@/components/login')
+  }]
+
+export const createRouter = () =>
+  new Router({
+    mode: 'history',
+    routes: contenRouter
+  })
+const router = createRouter()
 
 export default router
