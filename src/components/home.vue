@@ -8,6 +8,9 @@
         <el-menu-item index="acco">账户</el-menu-item>
         <el-menu-item index="trade">交易</el-menu-item>
         <el-menu-item index="printing">打印</el-menu-item>
+        <el-menu-item divided @click.native="logout">
+          <span style="display:block;">Log Out</span>
+        </el-menu-item>
       </el-menu>
     </el-header>
     <router-view :type="type"/>
@@ -15,6 +18,7 @@
 </template>
 
 <script>
+import {resetRouter} from '../router'
 export default {
   name: 'home',
   data: function () {
@@ -23,6 +27,11 @@ export default {
     }
   },
   methods: {
+    logout () {
+      sessionStorage.setItem('token', '')
+      resetRouter()
+      this.$router.push('/')
+    },
     handleSelect (key, keyPath) {
       this.type = key
       console.log('checked head menu ' + key)

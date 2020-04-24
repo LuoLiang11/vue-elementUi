@@ -35,17 +35,16 @@ export default {
   data () {
     return {
       user: {
-        username: 'zhangsan',
+        username: 'open',
         password: '123'
       }
     }
   },
   methods: {
     doLogin () {
-      this.$store.dispatch('GenerateRoutes', ['admin']).then(() => {
-        this.$router.addRoutes(this.$store.state.addRouters)
-        this.$router.push('/acco')
-      })
+      console.log(this.user.username)
+      sessionStorage.setItem('token', this.user.username)
+      this.$router.push('/acco')
     }
   }
 }

@@ -20,16 +20,25 @@ router.beforeEach((to, from, next) => {
    * 若没有则通过token获取角色信息
    * 通过角色匹配对应的可访问的路由
    * 将路由动态加载到router中
-   * 然后 next(...to)
+   * 然后 next(to)
    */
-  console.log(store.state.addRouters)
-  if (store.state.addRouters.length === 0) {
-    store.dispatch('GenerateRoutes', ['admin']).then(() => {
-      router.addRoutes(store.state.addRouters)
-      next(...to)
-    })
+  const token = sessionStorage.getItem('token')
+  if (token) {
+    if (store.state.addRouters.length === 0) {
+      const roles = token.split(',')
+      store.dispatch('GenerateRoutes', roles).then(() => {
+        router.addRoutes(store.state.addRouters)
+        next(to)
+      })
+    } else {
+      next()
+    }
   } else {
-    next()
+    if (to.path === '/login') {
+      next()
+    } else {
+      next('/login')
+    }
   }
 })
 

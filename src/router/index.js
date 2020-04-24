@@ -11,7 +11,7 @@ Vue.use(Router)
 
 export const powerRouter = [
   {
-    path: '/',
+    path: '/open',
     redirect: 'open',
     component: () => import('@/components/home'),
     children: [
@@ -26,15 +26,23 @@ export const powerRouter = [
 
 export const contenRouter = [
   {
+    path: '/',
+    redirect: 'login'
+  }, {
     path: '/login',
     component: () => import('@/components/login')
-  }]
+  }
+]
 
 export const createRouter = () =>
   new Router({
     mode: 'history',
     routes: contenRouter
   })
-const router = createRouter()
 
+export function resetRouter () {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
+const router = createRouter()
 export default router

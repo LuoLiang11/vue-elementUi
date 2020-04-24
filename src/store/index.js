@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 function hasPermission (roles, route) {
   if (route.meta && route.meta.role) {
-    return roles.some(role => route.meta.role.indexOf(role) >= 0)
+    return roles.some(role => route.meta.role.includes(role))
   } else {
     return true
   }
@@ -24,30 +24,29 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    GenerateRoutes ({ commit }, data) {
+    GenerateRoutes ({ commit }, roles) {
       return new Promise(resolve => { // 异步处理
-        const roles = data
-        const accessedRouters = powerRouter.filter(v => {
-          if (roles.indexOf('admin') >= 0) return true
-          if (hasPermission(roles, v)) {
-            if (v.children && v.children.length > 0) {
-              v.children = v.children.filter(child => {
-                if (hasPermission(roles, child)) {
-                  return child
-                }
-                return false
-              })
-              return v
-            } else {
-              return v
-            }
-          }
-          return false
-        })
+        const accessedRouters = filterAsyncRoutes(powerRouter, roles)
         commit('SET_ROUTERS', accessedRouters)
         resolve()// 异步处理完成
       })
     }
   }
 })
+
+function filterAsyncRoutes (routes, roles) {
+  const res = []
+
+  routes.forEach(route => {
+    const tmp = { ...route }
+    if (hasPermission(roles, tmp)) {
+      if (tmp.children) {
+        tmp.children = filterAsyncRoutes(tmp.children, roles)
+      }
+      res.push(tmp)
+    }
+  })
+  return res
+}
+
 export default store

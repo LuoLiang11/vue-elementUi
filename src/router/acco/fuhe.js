@@ -8,13 +8,13 @@ const fuhe =
       path: '/fuhe',
       type: 'acco',
       component: () => import('@/components/acco/fuhe'),
-      mate: {icon: 'el-icon-circle-check', title: '账户类复核'}
+      meta: {icon: 'el-icon-circle-check', title: '账户类复核', role: ['fuhe']}
     },
     {
       path: '/RejectModify',
       type: 'acco',
       component: () => import('@/components/acco/RejectModify'),
-      mate: {icon: 'el-icon-circle-close', title: '账户类驳回修改'}
+      meta: {icon: 'el-icon-circle-close', title: '账户类驳回修改'}
     }
     ]
   }
