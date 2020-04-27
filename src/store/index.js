@@ -30,6 +30,10 @@ const store = new Vuex.Store({
         commit('SET_ROUTERS', accessedRouters)
         resolve()// 异步处理完成
       })
+    },
+    Recovery ({ commit }) {
+      this.state.addRouters = []
+      this.state.routers = contenRouter
     }
   }
 })

@@ -29,8 +29,9 @@ export default {
   methods: {
     logout () {
       sessionStorage.setItem('token', '')
-      resetRouter()
       this.$router.push('/')
+      resetRouter()
+      this.$store.dispatch('Recovery')
     },
     handleSelect (key, keyPath) {
       this.type = key

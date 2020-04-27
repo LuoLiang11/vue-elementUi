@@ -19,6 +19,9 @@
             </td>
           </tr>
           <tr>
+            <td colspan="2">edit open fuhe</td>
+          </tr>
+          <tr>
             <td colspan="2">
               <el-button style="width: 300px" type="primary" @click="doLogin">登录</el-button>
             </td>
