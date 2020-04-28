@@ -3,12 +3,12 @@ const open =
   {
     path: '/acco',
     component: () => import('@/components/menu'),
-    meta: {type: 'acco', icon: 'el-icon-edit', title: '账户开户'}, // 菜单栏展示的图标和栏目文字
+    meta: {type: 'acco', icon: 'el-icon-edit', title: '账户开户', role: ['open']}, // 菜单栏展示的图标和栏目文字
     children: [
       {
         path: '/OpenConsumer',
         name: 'OpenConsumer',
-        meta: {type: 'acco', title: '个人', role: ['open']},
+        meta: {type: 'acco', title: '个人'},
         component: () => import('@/components/acco/OpenConsumer')
       },
       {

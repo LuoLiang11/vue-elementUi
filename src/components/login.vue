@@ -47,7 +47,7 @@ export default {
     doLogin () {
       console.log(this.user.username)
       sessionStorage.setItem('token', this.user.username)
-      this.$router.push('/acco')
+      this.$router.push('/home')
     }
   }
 }

@@ -12,10 +12,10 @@ Vue.use(Router)
 export const powerRouter = [
   {
     path: '/',
-    redirect: 'open'
+    redirect: 'home'
   },
   {
-    path: '/open',
+    path: '/home',
     component: () => import('@/components/home'),
     children: [
       accountOpen,
