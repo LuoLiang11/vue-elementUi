@@ -27,7 +27,7 @@ const store = new Vuex.Store({
     GenerateRoutes ({ commit }, roles) {
       return new Promise(resolve => { // 异步处理
         var accessedRouters
-        if (roles === 'admin') {
+        if (roles.some(role => 'admin'.includes(role))) {
           accessedRouters = powerRouter
         } else {
           accessedRouters = filterAsyncRoutes(powerRouter, roles)
