@@ -30,8 +30,8 @@ export default {
   },
   methods: {
     logout () {
-      this.$router.push('/login')
       sessionStorage.setItem('token', '')
+      this.$router.push('/login')
       resetRouter()
       this.$store.dispatch('Recovery')
     },
