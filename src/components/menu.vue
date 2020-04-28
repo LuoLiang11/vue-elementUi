@@ -3,7 +3,8 @@
   <el-aside width="200px">
       <el-menu class="el-menu-vertical-demo"
         background-color="#545c64" :router="true"
-        text-color="#fff" active-text-color="#ffd04b">
+        text-color="#fff" active-text-color="#ffd04b"
+        :default-active="$route.path">
         <menu-item v-for="(item,i) in menuData" :key="i" :item="item"></menu-item>
       </el-menu>
   </el-aside>
