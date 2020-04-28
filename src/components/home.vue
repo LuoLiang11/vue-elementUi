@@ -39,6 +39,11 @@ export default {
       this.type = key
       console.log('checked head menu ' + key)
     }
+  },
+  mounted () {
+    if (this.$route.meta.type) {
+      this.type = this.$route.meta.type
+    }
   }
 }
 </script>

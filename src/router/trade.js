@@ -2,26 +2,23 @@
 const trade = {
   path: '/trade',
   hidInMenu: true,
-  type: 'trade',
   component: () => import('@/components/menu'),
+  meta: {type: 'trade'},
   children: [
     {
       path: '/purchase',
-      type: 'trade',
       component: () => import('@/components/trade/Purchase'),
-      meta: {icon: 'el-icon-circle-check', title: '申购'}
+      meta: {type: 'trade', icon: 'el-icon-circle-check', title: '申购'}
     },
     {
       path: '/subscribe',
-      type: 'trade',
       component: () => import('@/components/trade/Subscribe'),
-      meta: {icon: 'el-icon-circle-close', title: '认购'}
+      meta: {type: 'trade', icon: 'el-icon-circle-close', title: '认购'}
     },
     {
       path: '/Redeem',
-      type: 'trade',
       component: () => import('@/components/trade/Redeem'),
-      meta: {icon: 'el-icon-sell', title: '赎回'}
+      meta: {type: 'trade', icon: 'el-icon-sell', title: '赎回'}
     }
   ]
 }

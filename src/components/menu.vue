@@ -36,12 +36,12 @@ export default {
       routes.forEach(route => {
         if (route.children) {
           route.children.forEach(item => {
-            if (item.type === this.type && item.hidInMenu) {
+            if (item.meta && item.meta.type === this.type && item.hidInMenu) {
               item.children.forEach(item => {
                 menuData.push(item)
               })
             }
-            if (item.type === this.type && !item.hidInMenu) {
+            if (item.meta && item.meta.type === this.type && !item.hidInMenu) {
               menuData.push(item)
             }
           })
