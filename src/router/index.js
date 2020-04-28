@@ -11,8 +11,11 @@ Vue.use(Router)
 
 export const powerRouter = [
   {
+    path: '/',
+    redirect: 'open'
+  },
+  {
     path: '/open',
-    redirect: 'open',
     component: () => import('@/components/home'),
     children: [
       accountOpen,
@@ -26,9 +29,6 @@ export const powerRouter = [
 
 export const contenRouter = [
   {
-    path: '/',
-    redirect: 'login'
-  }, {
     path: '/login',
     component: () => import('@/components/login')
   }

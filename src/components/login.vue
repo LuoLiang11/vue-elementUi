@@ -19,7 +19,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="2">edit open fuhe</td>
+            <td colspan="2">edit|open|fuhe|admin</td>
           </tr>
           <tr>
             <td colspan="2">
@@ -38,7 +38,7 @@ export default {
   data () {
     return {
       user: {
-        username: 'open',
+        username: 'admin',
         password: '123'
       }
     }

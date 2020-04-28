@@ -4,10 +4,12 @@
       <el-menu
         class="el-menu-demo" mode="horizontal"
         background-color="#545c64" text-color="#fff" @select="handleSelect"
-        active-text-color="#ffd04b" :router=true default-active="acco">
+        active-text-color="#ffd04b" :router=true :default-active="type">
         <el-menu-item index="acco">账户</el-menu-item>
         <el-menu-item index="trade">交易</el-menu-item>
         <el-menu-item index="printing">打印</el-menu-item>
+        <el-menu-item disabled index=""></el-menu-item>
+        <el-menu-item disabled index=""></el-menu-item>
         <el-menu-item divided @click.native="logout">
           <span style="display:block;">Log Out</span>
         </el-menu-item>
@@ -28,12 +30,12 @@ export default {
   },
   methods: {
     logout () {
+      this.$router.push('/login')
       sessionStorage.setItem('token', '')
-      this.$router.push('/')
       resetRouter()
       this.$store.dispatch('Recovery')
     },
-    handleSelect (key, keyPath) {
+    handleSelect (key) {
       this.type = key
       console.log('checked head menu ' + key)
     }
