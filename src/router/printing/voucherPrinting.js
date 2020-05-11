@@ -1,6 +1,6 @@
 
 const voucherPrinting = {
-  path: '/voucherPrinting',
+  path: '/printing',
   meta: {type: 'printing', icon: 'el-icon-printer', title: '确认单打印'},
   component: () => import('@/components/menu'),
   children: [
