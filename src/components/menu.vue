@@ -31,7 +31,7 @@ export default {
     getMenu () {
       this.menuData = []
       const menuData = []
-      const routes = this.$store.state.routers
+      const routes = this.$store.state.addRouters
       console.log(routes)
       routes.forEach(route => {
         if (route.children) {
