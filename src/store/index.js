@@ -1,26 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { contenRouter, powerRouter } from '../router'
+import { powerRouter } from '../router'
 
 Vue.use(Vuex)
 
-function hasPermission (roles, route) {
-  if (route.meta && route.meta.role) {
-    return roles.some(role => route.meta.role.includes(role))
-  } else {
-    return true
-  }
-}
-
 const store = new Vuex.Store({
   state: {
-    routers: contenRouter,
     addRouters: []
   },
   mutations: {
     SET_ROUTERS: (state, routers) => {
       state.addRouters = routers
-      state.routers = contenRouter.concat(routers)
     }
   },
   actions: {
@@ -38,7 +28,6 @@ const store = new Vuex.Store({
     },
     Recovery ({ commit }) {
       this.state.addRouters = []
-      this.state.routers = contenRouter
     }
   }
 })
@@ -58,4 +47,11 @@ function filterAsyncRoutes (routes, roles) {
   return res
 }
 
+function hasPermission (roles, route) {
+  if (route.meta && route.meta.role) {
+    return roles.some(role => route.meta.role.includes(role))
+  } else {
+    return true
+  }
+}
 export default store

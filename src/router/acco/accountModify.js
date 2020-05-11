@@ -1,6 +1,6 @@
 
 const modify = {
-  path: '/modify',
+  path: '/acco',
   meta: {type: 'acco', icon: 'el-icon-edit-outline', title: '资料修改', role: ['edit']},
   component: () => import('@/components/menu'),
   children: [

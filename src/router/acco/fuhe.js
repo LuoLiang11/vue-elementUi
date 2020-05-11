@@ -1,6 +1,6 @@
 const fuhe =
   {
-    path: '/',
+    path: '/acco',
     hidInMenu: true, // 在菜单栏不展示此项
     component: () => import('@/components/menu'),
     meta: {type: 'acco'},
